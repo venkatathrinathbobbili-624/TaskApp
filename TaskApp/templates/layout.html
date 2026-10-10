@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Change these two lines to use relative paths -->
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>TodoApp</title>
+</head>
+<body>
+
+  {% include 'navbar.html' %}
+
+  {% block content %}
+
+  {% endblock %}
+
+    <!-- Change these lines to use relative paths as well -->
+    <script src="/static/js/jquery-slim.js"></script>
+    <script src="/static/js/popper.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/base.js" defer></script>
+</body>
+</html>
