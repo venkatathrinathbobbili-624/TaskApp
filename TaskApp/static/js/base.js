@@ -26,7 +26,10 @@
                 });
 
                 if (response.ok) {
-                    form.reset(); // Clear the form
+                    form.hidden = true;
+                    document.getElementById('todoCardHeader').textContent = 'Todo created successfully';
+                    document.getElementById('todoSuccess').hidden = false;
+                    document.getElementById('todoSuccessOk').focus();
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -36,6 +39,10 @@
                 console.error('Error:', error);
                 alert('An error occurred. Please try again.');
             }
+        });
+
+        document.getElementById('todoSuccessOk').addEventListener('click', function () {
+            window.location.href = '/todos/todo-page';
         });
     }
 

@@ -2,46 +2,56 @@
 
 {% block content %}
 <div class="container">
-    <div class="card text-center">
-        <div class="card-header">
-            Your Todo's!
+    <header class="page-heading">
+        <div>
+            <p class="eyebrow">YOUR PERSONAL QUEST LOG</p>
+            <h1>Make your next move.</h1>
+            <p class="heading-copy">Keep the important things in sight. One task at a time.</p>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">
-                List of your todo's!
-            </h5>
-            <p class="card-text">
-                Information regarding stuff that needs to be complete
-            </p>
-
-            <table class="table table-hover">
+        <a href="add-todo-page" class="btn btn-primary add-task-button"><span aria-hidden="true">+</span> Add a task</a>
+    </header>
+    <section class="card app-panel">
+        <div class="card-header panel-heading">
+            <span>Task register</span>
+            <span class="panel-meta">{{ todos|length }} {% if todos|length == 1 %}ENTRY{% else %}ENTRIES{% endif %}</span>
+        </div>
+        <div class="card-body p-0">
+            {% if todos %}
+            <div class="table-responsive">
+            <table class="table table-hover quest-table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Info</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">NO.</th>
+                        <th scope="col">OBJECTIVE</th>
+                        <th scope="col">PRIORITY</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for todo in todos %}
                 {% if todo.complete == False %}
-                <tr class="pointer">
-                    <td>{{loop.index}}</td>
-                    <td>{{todo.title}}</td>
+                <tr>
+                    <td class="row-number">{{loop.index}}</td>
+                    <td class="task-name">{{todo.title}}<span>{{todo.description}}</span></td>
+                    <td><span class="priority-chip">P{{todo.priority}}</span></td>
+                    <td><span class="status-label"><i></i>In progress</span></td>
                     <td>
                         <button onclick="window.location.href='edit-todo-page/{{todo.id}}'"
-                                type="button" class="btn btn-info">
+                                type="button" class="btn btn-info action-button">
                             Edit
                         </button>
                     </td>
                 </tr>
                 {% else %}
-                <tr class="pointer alert alert-success">
-                    <td>{{loop.index}}</td>
-                    <td class="strike-through-td">{{todo.title}}</td>
+                <tr class="completed-row">
+                    <td class="row-number">{{loop.index}}</td>
+                    <td class="task-name strike-through-td">{{todo.title}}<span>{{todo.description}}</span></td>
+                    <td><span class="priority-chip">P{{todo.priority}}</span></td>
+                    <td><span class="status-label status-complete"><i></i>Complete</span></td>
                     <td>
                         <button onclick="window.location.href='edit-todo-page/{{todo.id}}'"
-                                type="button" class="btn btn-info">
+                                type="button" class="btn btn-info action-button">
                             Edit
                         </button>
                     </td>
@@ -50,9 +60,16 @@
                 {% endfor %}
                 </tbody>
             </table>
-            <a href="add-todo-page" class="btn btn-primary">Add a new todo!</a>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <span class="empty-mark" aria-hidden="true">＋</span>
+                <h2>Your log is clear.</h2>
+                <p>Add your first objective and start building momentum.</p>
+            </div>
+            {% endif %}
         </div>
-    </div>
+    </section>
 </div>
 {% endblock %}
 

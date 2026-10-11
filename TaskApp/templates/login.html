@@ -1,27 +1,31 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            Login
-        </div>
+<div class="container auth-layout">
+    <section class="auth-intro">
+        <p class="eyebrow">QUESTLOG / ACCESS</p>
+        <h1>Every great run starts with a plan.</h1>
+        <p>Sign in to pick up where you left off and keep your next objective moving.</p>
+        <div class="auth-coordinate"><span></span> SYSTEM ONLINE</div>
+    </section>
+    <section class="card app-panel auth-panel">
+        <div class="card-header panel-heading"><span>Welcome back</span><span class="panel-meta">01 / LOGIN</span></div>
         <div class="card-body">
             <form id="loginForm">
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username" autocomplete="username" required>
+                    <label for="loginUsername">Username</label>
+                    <input id="loginUsername" type="text" class="form-control" name="username" autocomplete="username" required>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" name="password" autocomplete="current-password" required>
+                    <label for="loginPassword">Password</label>
+                    <input id="loginPassword" type="password" class="form-control" name="password" autocomplete="current-password" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary auth-submit">Sign in <span aria-hidden="true">→</span></button>
             </form>
         </div>
-        <div class="card-footer text-muted">
-            <a href="/auth/register-page"> Register? </a>
+        <div class="card-footer auth-footer">
+            New here? <a href="/auth/register-page">Create an account</a>
         </div>
-    </div>
+    </section>
 </div>
 {% endblock %}

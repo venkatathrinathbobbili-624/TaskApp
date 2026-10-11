@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      Make a new todo
+<div class="container form-page">
+  <header class="page-heading compact-heading">
+    <div>
+      <p class="eyebrow">NEW OBJECTIVE / 01</p>
+      <h1>Set your next target.</h1>
+      <p class="heading-copy">Give it a clear name, then decide what matters most.</p>
+    </div>
+  </header>
+  <div class="card app-panel form-panel">
+    <div class="card-header panel-heading" id="todoCardHeader">
+      <span>Task details</span><span class="panel-meta">NEW ENTRY</span>
     </div>
     <div class="card-body">
       <form id="todoForm">
@@ -26,9 +33,15 @@
             <option>5</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary"> Add new todo </button>
-        <a href="/todos/todo-page" class="btn btn-success">Back</a>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Create task <span aria-hidden="true">→</span></button>
+          <a href="/todos/todo-page" class="btn btn-link">Cancel</a>
+        </div>
       </form>
+      <div id="todoSuccess" class="text-center" hidden>
+        <p class="alert alert-success success-message" role="status">Todo created successfully.</p>
+        <button id="todoSuccessOk" type="button" class="btn btn-primary">OK <span aria-hidden="true">→</span></button>
+      </div>
     </div>
   </div>
 </div>

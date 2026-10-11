@@ -1,58 +1,62 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      Register
-    </div>
+<div class="container auth-layout register-layout">
+  <section class="auth-intro">
+    <p class="eyebrow">QUESTLOG / NEW HUNTER</p>
+    <h1>Make room for what matters.</h1>
+    <p>Build a personal task log and turn big plans into clear next steps.</p>
+    <div class="auth-coordinate"><span></span> NEW PROFILE / 02</div>
+  </section>
+  <section class="card app-panel auth-panel">
+    <div class="card-header panel-heading"><span>Create your account</span><span class="panel-meta">02 / REGISTER</span></div>
     <div class="card-body">
       <form id="registerForm">
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email" required>
+            <label for="registerEmail">Email</label>
+            <input id="registerEmail" type="text" class="form-control" name="email" required>
           </div>
           <div class="form-group col-md-6">
-            <label>Username</label>
-            <input type="text" class="form-control" name="username" required>
+            <label for="registerUsername">Username</label>
+            <input id="registerUsername" type="text" class="form-control" name="username" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label>First Name</label>
-            <input type="text" class="form-control" name="firstname" required>
+            <label for="registerFirstname">First Name</label>
+            <input id="registerFirstname" type="text" class="form-control" name="firstname" required>
           </div>
           <div class="form-group col-md-6">
-            <label>Last Name</label>
-            <input type="text" class="form-control" name="lastname" required>
+            <label for="registerLastname">Last Name</label>
+            <input id="registerLastname" type="text" class="form-control" name="lastname" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label>Role</label>
-            <input type="text" class="form-control" name="role" required>
+            <label for="registerRole">Role</label>
+            <input id="registerRole" type="text" class="form-control" name="role" required>
           </div>
           <div class="form-group col-md-6">
-            <label>Phone Number</label>
-            <input type="text" class="form-control" name="phone_number" autocomplete="phone_number" required>
+            <label for="registerPhone">Phone Number</label>
+            <input id="registerPhone" type="text" class="form-control" name="phone_number" autocomplete="phone_number" required>
           </div>
         </div>
         <div class="form-group">
-          <label>Password</label>
-          <input type="password" class="form-control" name="password" autocomplete="new-password" required>
+          <label for="registerPassword">Password</label>
+          <input id="registerPassword" type="password" class="form-control" name="password" autocomplete="new-password" required>
         </div>
         <div class="form-group">
-          <label>Verify Password</label>
-          <input type="password" class="form-control" name="password2" autocomplete="new-password" required>
+          <label for="registerPassword2">Verify Password</label>
+          <input id="registerPassword2" type="password" class="form-control" name="password2" autocomplete="new-password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary auth-submit">Create account <span aria-hidden="true">→</span></button>
       </form>
     </div>
-    <div class="card-footer text-muted">
-      <a href="/auth/login-page">Already have an account?</a>
+    <div class="card-footer auth-footer">
+      Already have an account? <a href="/auth/login-page">Sign in</a>
     </div>
-  </div>
+  </section>
 </div>
 {% endblock %}
 
