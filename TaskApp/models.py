@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, true
 
 
 class Users(Base):
@@ -14,6 +14,9 @@ class Users(Base):
     is_active = Column(Boolean, default=True)
     role = Column(String)
     phone_number = Column(String)
+    is_email_verified = Column(Boolean, nullable=False, default=True, server_default=true())
+    email_verification_token_hash = Column(String, nullable=True)
+    email_verification_expires_at = Column(DateTime(timezone=True), nullable=True)
 
 
 class Todos(Base):

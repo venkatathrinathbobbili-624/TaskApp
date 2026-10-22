@@ -1,6 +1,9 @@
 bcrypt==4.0.1
 cryptography
 fastapi
+alembic
+email-validator
+python-dotenv
 psycopg2-binary
 PyMySQL
 python-jose

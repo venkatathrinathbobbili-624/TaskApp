@@ -8,6 +8,7 @@ Create Date: 2023-08-28 19:59:25.616334
 from typing import Sequence, Union
 
 from alembic import op
+from sqlalchemy import inspect
 import sqlalchemy as sa
 
 
@@ -19,8 +20,16 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.add_column('users', sa.Column('phone_number', sa.String(), nullable=True))
+    inspector = inspect(op.get_bind())
+    if inspector.has_table("users") and "phone_number" not in {
+        column["name"] for column in inspector.get_columns("users")
+    }:
+        op.add_column('users', sa.Column('phone_number', sa.String(), nullable=True))
 
 
 def downgrade() -> None:
-    op.drop_column('users', 'phone_number')
+    inspector = inspect(op.get_bind())
+    if inspector.has_table("users") and "phone_number" in {
+        column["name"] for column in inspector.get_columns("users")
+    }:
+        op.drop_column('users', 'phone_number')

@@ -207,11 +207,14 @@
                 });
 
                 if (response.ok) {
-                    window.location.href = '/auth/login-page';
+                    const result = await response.json();
+                    const message = document.getElementById('registerMessage');
+                    message.textContent = result.message;
+                    message.hidden = false;
+                    registerForm.reset();
                 } else {
-                    // Handle error
                     const errorData = await response.json();
-                    alert(`Error: ${errorData.message}`);
+                    alert(`Error: ${errorData.detail || 'Registration failed.'}`);
                 }
             } catch (error) {
                 console.error('Error:', error);

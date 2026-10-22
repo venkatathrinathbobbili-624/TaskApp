@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container auth-layout">
+  <section class="card app-panel auth-panel">
+    <div class="card-header panel-heading"><span>Email verification</span></div>
+    <div class="card-body">
+      <p>{{ message }}</p>
+      {% if verified %}
+      <a class="btn btn-primary auth-submit" href="/auth/login-page">Sign in</a>
+      {% else %}
+      <a href="/auth/register-page">Return to registration</a>
+      {% endif %}
+    </div>
+  </section>
+</div>
+{% endblock %}
