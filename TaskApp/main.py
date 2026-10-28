@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, status
-from .routers import auth, todos, admin, users
+from routers import auth, todos, admin, users
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pathlib import Path as PyPath
