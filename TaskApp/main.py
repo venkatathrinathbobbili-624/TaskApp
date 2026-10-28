@@ -1,7 +1,5 @@
 from fastapi import FastAPI, Request, status
-from models import Base
-from database import engine
-from routers import auth, todos, admin, users
+from .routers import auth, todos, admin, users
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 from pathlib import Path as PyPath
@@ -10,9 +8,6 @@ app = FastAPI()
 
 BASE_DIR = PyPath(__file__).resolve().parent
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
-
-Base.metadata.create_all(bind=engine)
-
 
 @app.get("/")
 def test(request: Request):

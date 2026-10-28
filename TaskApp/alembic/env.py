@@ -1,13 +1,20 @@
 from logging.config import fileConfig
+import sys
+from pathlib import Path
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
-import models
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from TaskApp import models
+from TaskApp.database import SQLALCHEMY_DATABASE_URL
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+config.set_main_option("sqlalchemy.url", SQLALCHEMY_DATABASE_URL.replace("%", "%%"))
 fileConfig(config.config_file_name)
 target_metadata = models.Base.metadata
 

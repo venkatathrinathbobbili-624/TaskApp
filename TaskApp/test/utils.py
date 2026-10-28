@@ -8,12 +8,12 @@ import pytest
 from ..models import Todos, Users
 from ..routers.auth import bcrypt_context
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./testdb.db"
+SQLALCHEMY_DATABASE_URL = "sqlite://"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
     connect_args={"check_same_thread": False},
-    poolclass = StaticPool,
+    poolclass=StaticPool,
 )
 
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -69,7 +69,6 @@ def test_user():
     with engine.connect() as connection:
         connection.execute(text("DELETE FROM users;"))
         connection.commit()
-
 
 
 
