@@ -27,7 +27,7 @@
 
                 if (response.ok) {
                     form.hidden = true;
-                    document.getElementById('todoCardHeader').textContent = 'Todo created successfully';
+                    document.getElementById('todoCardHeader').textContent = 'Quest recorded successfully';
                     document.getElementById('todoSuccess').hidden = false;
                     document.getElementById('todoSuccessOk').focus();
                 } else {

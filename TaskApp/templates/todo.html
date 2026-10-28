@@ -4,25 +4,25 @@
 <div class="container">
     <header class="page-heading">
         <div>
-            <p class="eyebrow">YOUR PERSONAL QUEST LOG</p>
-            <h1>Make your next move.</h1>
-            <p class="heading-copy">Keep the important things in sight. One task at a time.</p>
+            <p class="eyebrow">WARRIOR QUEST / JOURNAL</p>
+            <h1>Choose your next quest.</h1>
+            <p class="heading-copy">Keep your objectives in sight. One quest at a time.</p>
         </div>
-        <a href="add-todo-page" class="btn btn-primary add-task-button"><span aria-hidden="true">+</span> Add a task</a>
+        <a href="add-todo-page" class="btn btn-primary add-task-button"><span aria-hidden="true">+</span> Begin a quest</a>
     </header>
     <section class="card app-panel">
         <div class="card-header panel-heading">
-            <span>Task register</span>
+            <span>Quest journal</span>
             <span class="panel-meta">{{ todos|length }} {% if todos|length == 1 %}ENTRY{% else %}ENTRIES{% endif %}</span>
         </div>
         <div class="card-body p-0">
             {% if todos %}
             <div class="table-responsive">
-            <table class="table table-hover quest-table">
+            <table class="table table-hover mission-table">
                 <thead>
                     <tr>
                         <th scope="col">NO.</th>
-                        <th scope="col">OBJECTIVE</th>
+                        <th scope="col">QUEST</th>
                         <th scope="col">PRIORITY</th>
                         <th scope="col">STATUS</th>
                         <th scope="col">ACTION</th>
@@ -65,15 +65,13 @@
             <div class="empty-state">
                 <span class="empty-mark" aria-hidden="true">＋</span>
                 <h2>Your log is clear.</h2>
-                <p>Add your first objective and start building momentum.</p>
+                <p>Record your first quest and begin your journey.</p>
             </div>
             {% endif %}
         </div>
     </section>
 </div>
 {% endblock %}
-
-
 
 
 
